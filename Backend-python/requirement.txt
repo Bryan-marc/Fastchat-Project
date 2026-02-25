@@ -1,0 +1,12 @@
+﻿fastapi
+uvicorn[standard]
+pymongo
+bcrypt
+python-jose[cryptography]
+python-dotenv
+face-recognition
+opencv-python
+Pillow
+pydantic[email]
+email-validator
+numpy

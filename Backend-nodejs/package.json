@@ -1,0 +1,31 @@
+{
+  "name": "fastchat-backend-nodejs",
+  "version": "1.0.0",
+  "description": "FastChat - Serveur de chat temps réel avec Socket.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "chat",
+    "socket.io",
+    "real-time",
+    "ephemeral"
+  ],
+  "author": "FastChat Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.5.4",
+    "mongodb": "^5.9.0",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

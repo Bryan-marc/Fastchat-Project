@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastChat - Connexion</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 min-h-screen flex items-center justify-center p-4">
+    
+    <div class="max-w-md w-full">
+        
+        <div class="text-center mb-8">
+            <h1 class="text-5xl font-bold text-white mb-2">💬 FastChat</h1>
+            <p class="text-gray-300">Chat éphémère et sécurisé</p>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-8 border border-white/20">
+            
+            <div class="flex mb-6 bg-white/5 rounded-lg p-1">
+                <button id="tab-login" class="flex-1 py-2 px-4 rounded-md text-white font-medium transition-all bg-white/20">
+                    Connexion
+                </button>
+                <button id="tab-register" class="flex-1 py-2 px-4 rounded-md text-white/70 font-medium transition-all hover:text-white">
+                    Inscription
+                </button>
+            </div>
+
+            <form id="login-form" class="space-y-4">
+                <div>
+                    <label class="block text-white text-sm font-medium mb-2">Email</label>
+                    <input 
+                        type="email" 
+                        id="login-email" 
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        placeholder="votre@email.com"
+                        required
+                    >
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm font-medium mb-2">Mot de passe</label>
+                    <input 
+                        type="password" 
+                        id="login-password" 
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        placeholder="••••••••"
+                        required
+                    >
+                </div>
+
+                <button 
+                    type="submit" 
+                    class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105"
+                >
+                    Se connecter
+                </button>
+            </form>
+
+            <form id="register-form" class="space-y-4 hidden">
+                <div>
+                    <label class="block text-white text-sm font-medium mb-2">Nom d'utilisateur</label>
+                    <input 
+                        type="text" 
+                        id="register-username" 
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        placeholder="JohnDoe"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label class="block text-white text-sm font-medium mb-2">Email</label>
+                    <input 
+                        type="email" 
+                        id="register-email" 
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        placeholder="votre@email.com"
+                        required
+                    >
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm font-medium mb-2">Mot de passe</label>
+                    <input 
+                        type="password" 
+                        id="register-password" 
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        placeholder="••••••••"
+                        required
+                    >
+                </div>
+
+                <button 
+                    type="submit" 
+                    class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105"
+                >
+                    S'inscrire
+                </button>
+            </form>
+
+            <div class="relative my-6">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-white/20"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-4 bg-white/10 text-white rounded-full">OU</span>
+                </div>
+            </div>
+
+            <button 
+                id="btn-face-login" 
+                class="w-full bg-white/10 border border-white/30 text-white font-medium py-3 rounded-lg hover:bg-white/20 transition-all flex items-center justify-center gap-2"
+            >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Se connecter avec le visage
+            </button>
+        </div>
+
+        <div id="error-message" class="hidden mt-4 bg-red-500/20 border border-red-500 text-red-200 px-4 py-3 rounded-lg">
+            <p id="error-text"></p>
+        </div>
+
+        <div id="success-message" class="hidden mt-4 bg-green-500/20 border border-green-500 text-green-200 px-4 py-3 rounded-lg">
+            <p id="success-text"></p>
+        </div>
+    </div>
+
+    <div id="face-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl p-6 max-w-md w-full">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">Reconnaissance faciale</h2>
+            
+            <div class="relative mb-4">
+                <video id="video" class="w-full rounded-lg" autoplay></video>
+                <canvas id="canvas" class="hidden"></canvas>
+            </div>
+
+            <p class="text-gray-600 text-sm mb-4 text-center">
+                Positionnez votre visage dans le cadre et cliquez sur "Capturer"
+            </p>
+
+            <div class="flex gap-3">
+                <button 
+                    id="btn-capture" 
+                    class="flex-1 bg-purple-500 text-white font-bold py-2 rounded-lg hover:bg-purple-600"
+                >
+                    📸 Capturer
+                </button>
+                <button 
+                    id="btn-cancel-face" 
+                    class="flex-1 bg-gray-300 text-gray-700 font-bold py-2 rounded-lg hover:bg-gray-400"
+                >
+                    Annuler
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 flex flex-col items-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mb-4"></div>
+            <p class="text-gray-700 font-medium">Connexion en cours...</p>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
