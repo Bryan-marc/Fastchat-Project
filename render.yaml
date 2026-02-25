@@ -34,7 +34,6 @@ services:
   - type: web
     name: fastchat-frontend
     env: static
-    region: frankfurt
     plan: free
     branch: main
     rootDir: Frontend_css
