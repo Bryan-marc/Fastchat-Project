@@ -1,6 +1,4 @@
 services:
-#  
- Backend Python (FastAPI)
   - type: web
     name: fastchat-api
     env: python
@@ -16,38 +14,6 @@ services:
       - key: SECRET_KEY
         sync: false
 
-#  
- Backend Node.js (Socket.io)
-  - type: web
-    name: fastchat-socket
-    env: node
-    region: frankfurt
-    plan: free
-    branch: main
-    rootDir: Backend-nodejs
-    buildCommand: npm install
-
-cd ~/Documents/Projet\ Fast-Chat
-
-cat > render.yaml << 'EOF'
-services:
-  # Backend Python (FastAPI)
-  - type: web
-    name: fastchat-api
-    env: python
-    region: frankfurt
-    plan: free
-    branch: main
-    rootDir: Backend-python
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
-    envVars:
-      - key: MONGODB_URI
-        sync: false
-      - key: SECRET_KEY
-        sync: false
-  
-  # Backend Node.js (Socket.io)
   - type: web
     name: fastchat-socket
     env: node
@@ -64,8 +30,7 @@ services:
         sync: false
       - key: PORT
         value: 10000
-  
-  # Frontend
+
   - type: web
     name: fastchat-frontend
     env: static
