@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 💬 FastChat - Chat Éphémère Sécurisé
 
 Application web de chat en temps réel avec messages éphémères.
@@ -72,3 +73,7 @@ Bryan TAKAM
 ## 📜 Licence
 
 MIT
+=======
+# Fastchat-Project
+Application de chat éphémère et sécurisée 
+>>>>>>> 51746a18ce8abbd7b0fc0e3e6988768ac7cb7045
