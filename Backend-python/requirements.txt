@@ -1,0 +1,9 @@
+﻿fastapi
+uvicorn[standard]
+pymongo
+bcrypt
+python-jose[cryptography]
+python-dotenv
+pydantic[email]
+email-validator
+gunicorn
