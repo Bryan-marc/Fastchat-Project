@@ -1,7 +1,7 @@
 // 🔐 FASTCHAT - Gestion de l'authentification
 
 // Configuration
-const API_URL = 'http://localhost:8000';  // Backend Python
+const API_URL = 'https://fastchat-api.onrender.com';  // Backend Python
 
 // Éléments DOM
 const loginForm = document.getElementById('login-form');

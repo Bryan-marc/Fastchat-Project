@@ -1,7 +1,7 @@
 // 💬 FASTCHAT - Gestion du chat temps réel
 
 // Configuration
-const SOCKET_URL = 'http://localhost:3000';  // Backend Node.js
+const SOCKET_URL = 'https://fastchat-socket.onrender.com';  // Backend Node.js
 
 // Récupération des infos utilisateur
 const token = localStorage.getItem('token');
