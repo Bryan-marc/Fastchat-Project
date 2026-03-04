@@ -9,11 +9,6 @@ from pydantic import BaseModel, EmailStr
 from pymongo import MongoClient
 from jose import jwt, JWTError
 import bcrypt
-#import face_recognition
-import base64
-import io
-from PIL import Image
-import numpy as np
 from datetime import datetime, timedelta
 import os
 from dotenv import load_dotenv
@@ -90,22 +85,6 @@ def hash_password(password: str) -> bytes:
 def verify_password(plain_password: str, hashed_password: bytes) -> bool:
     """Vérifier un mot de passe"""
     return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password)
-
-def decode_base64_image(base64_string: str) -> np.ndarray:
-    """Décoder une image base64 en array numpy"""
-    try:
-        image_data = base64.b64decode(base64_string)
-        image_pil = Image.open(io.BytesIO(image_data))
-        # Convertir en RGB si nécessaire
-        if image_pil.mode != 'RGB':
-            image_pil = image_pil.convert('RGB')
-        image_np = np.array(image_pil)
-        return image_np
-    except Exception as e:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Erreur de décodage de l'image: {str(e)}"
-        )
 
 # ==================== ROUTES ====================
 
