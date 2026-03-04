@@ -35,18 +35,6 @@ let currentPartialId = '';
 let currentColorBadge = '';
 let editingMessageId = null;
 
-// ==================== CONNEXION SOCKET.IO ====================
-
-let forceLogin = false; // Flag pour forcer la connexion
-
-// Vérifier si on doit forcer la connexion
-const forceLogin = localStorage.getItem('forceLogin') === 'true';
-
-// Si on force, retirer le flag immédiatement
-if (forceLogin) {
-    localStorage.removeItem('forceLogin');
-    console.log('🔄 Reconnexion forcée...');
-}
 
 // ==================== CONNEXION SOCKET.IO ====================
 
@@ -182,8 +170,6 @@ socket.on('session-ended', () => {
     alert('La session de chat est terminée. Tous les messages ont été supprimés.');
     window.location.href = 'index.html';
 });
-// Appeler la fonction une première fois
-attachSocketEvents();
 
 // ==================== ENVOI DE MESSAGE ====================
 
